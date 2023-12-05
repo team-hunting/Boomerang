@@ -1,3 +1,6 @@
+# Boomerang!  
+### Mirror requests back to yourself. Useful for development purposes, if you need to see exactly what information you're sending out with your requests.  
+
 Run with Docker: ```docker compose build``` -> ```docker compose up```  
   
 Hot Reloading: ```uvicorn main:app --reload --port 8000```  
