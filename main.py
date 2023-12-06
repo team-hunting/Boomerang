@@ -12,6 +12,12 @@ app.add_middleware(
     allow_headers=["*"],
 ) 
 
+
+@app.get("/healthcheck")
+async def healthcheck():
+    return {"status": "ok"}
+
+
 @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE"])
 async def boomerang(request: Request):
     '''Mirror the request back to the client.'''
@@ -34,12 +40,6 @@ async def boomerang(request: Request):
         "receive": request.receive,
         "stream": request.stream,
         } 
-
-
-@app.get("/healthcheck")
-async def healthcheck():
-    return {"status": "ok"}
-
 
 
 if __name__ == "__main__":
